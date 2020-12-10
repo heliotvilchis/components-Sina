@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drawer 2</title>
+
+    <!--JQuerry-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="/styles/root.css">
+
+    <script>
+        function closeDrower() {
+            document.getElementById("drawer").style.display = "none";
+            document.getElementById("drawer-navigarion").style.visibility = "hidden";
+            document.getElementById("drawer-backdrop").style.visibility = "hidden";
+            document.getElementById("drawer-top-line").style.visibility = "hidden";
+            document.getElementById("drawer-bottom-line").style.visibility = "hidden";
+        }
+
+        function openDrower() {
+            document.getElementById("drawer").style.visibility = "visible";
+            document.getElementById("drawer-navigarion").style.visibility = "visible";
+            document.getElementById("drawer-backdrop").style.visibility = "visible";
+            document.getElementById("drawer-top-line").style.visibility = "visible";
+            document.getElementById("drawer-bottom-line").style.visibility = "visible";
+        }
+    </script>
+
+    <style>
+        /*DRAWER*/
+        
+        @media (max-width: 899px) {
+            #drawer {
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                visibility: visible;
+                z-index: 100;
+            }
+            #drawer-navigarion {
+                background-color: rgb(255, 255, 255);
+                box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 6px 0px;
+                max-width: 280px;
+                position: fixed;
+                right: 56px;
+                left: 0;
+                top: 0px;
+                bottom: 0;
+                visibility: visible;
+                z-index: 102;
+                overflow: scroll;
+            }
+            #drawer-backdrop {
+                background-color: rgba(0, 0, 0, 0.4);
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                visibility: visible;
+                z-index: 101;
+            }
+        }
+        /*DRAWER LOGO*/
+        
+        @media (max-width: 899px) {
+            #drawer-logo {
+                padding: 19px 0 19px 16px;
+            }
+            #drawer-logo path {
+                fill: var(--primary);
+            }
+        }
+        
+        @media (min-width: 899.1px) {
+            #drawer {
+                display: none;
+            }
+        }
+        /*DRAWER TABS*/
+        
+        @media (max-width: 899px) {
+            #drawer-tabs {
+                position: absolute;
+                overflow: scroll;
+                top: 56px;
+                bottom: 140px;
+                left: 0;
+                right: 0px;
+            }
+            #drawer-tabs ul {
+                padding: 0;
+            }
+            #drawer-tabs li {
+                line-height: 1.71429;
+                font-size: 14px;
+                letter-spacing: .25px;
+                padding: 15.5px 0;
+            }
+            #drawer-tabs a {
+                padding: 0 16px;
+            }
+            .gray-tab {
+                background: var(--midGray);
+            }
+        }
+        /*BOTTOM DROWER*/
+        
+        @media (max-width: 899px) {
+            #bottom-drower {
+                position: fixed;
+                background: white;
+                bottom: 0;
+                left: 0;
+                right: 56px;
+                max-width: 280px;
+                z-index: 205;
+            }
+            #bottom-drower hr {
+                margin-block-start: 0px;
+            }
+            #bottom-drower ul {
+                padding: 8px 16px 24px 16px;
+            }
+            #bottom-drower li {
+                margin: 8px 0;
+            }
+            #bottom-drower button {
+                background: var(--primary);
+                color: var(--white);
+                width: 100%;
+                height: 48px;
+                line-height: 1.71429;
+                font-size: 14px;
+                border: none;
+                border-radius: 2px;
+                letter-spacing: .75px;
+                font-weight: 400;
+                cursor: pointer;
+                word-wrap: break-word;
+            }
+            #bottom-drower button:hover {
+                background-color: var(--complementary);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--Start-->
+    <!--Drawer-->
+    <div id="drawer" aria-label="Navigation drawer" role="dialog" tabindex="0">
+        <div id="drawer-navigarion">
+            <!--Drawer logo-->
+            <svg id="drawer-logo" width="180" height="18" viewBox="0 0 180 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M14.6333 17.7595H10.4369V10.4489H4.22045V17.7595H0V0.252505H4.22045V7.20241H10.4369V0.252505H14.6333V17.7595ZM28.1724 10.3407H21.535V14.513H29.3747V17.7595H17.3146V0.252505H29.3987V3.51102H21.535V7.20241H28.1724V10.3407ZM35.3145 14.513H42.6612V17.7595H31.0942V0.252505H35.3145V14.513ZM48.9378 17.7595H44.7294V0.252505H48.9378V17.7595ZM66.6973 9.36674C66.6973 11.0741 66.3807 12.5852 65.7474 13.8998C65.1141 15.2144 64.2124 16.2285 63.0421 16.9419C61.8798 17.6473 60.5531 18 59.0621 18C57.5712 18 56.2484 17.6593 55.0941 16.9779C53.9398 16.2886 53.0381 15.3066 52.3888 14.0321C51.7476 12.7575 51.4108 11.2946 51.3788 9.64328V8.6573C51.3788 6.94189 51.6913 5.43087 52.3166 4.12425C52.9499 2.80961 53.8518 1.79558 55.0221 1.08216C56.2004 0.368738 57.539 0.0120232 59.0381 0.0120232C60.5211 0.0120232 61.8437 0.364728 63.006 1.07014C64.1683 1.77556 65.07 2.78156 65.7115 4.08817C66.3608 5.38677 66.6893 6.87776 66.6973 8.56112V9.36674ZM62.4047 8.63325C62.4047 6.89379 62.1121 5.57515 61.5271 4.67735C60.9498 3.77153 60.1201 3.31864 59.0381 3.31864C56.9217 3.31864 55.8035 4.90581 55.6833 8.08015L55.6714 9.36674C55.6714 11.0822 55.9558 12.4008 56.5251 13.3226C57.0941 14.2445 57.9398 14.7054 59.0621 14.7054C60.1281 14.7054 60.9498 14.2525 61.5271 13.3467C62.1041 12.4409 62.3967 11.1383 62.4047 9.43887V8.63325ZM81.5831 3.51102H76.3287V17.7595H72.1081V3.51102H66.9499V0.252505H81.5831V3.51102ZM95.579 12.998L99.0662 0.252505H103.779L97.8877 17.7595H93.2704L87.4269 0.252505H92.1042L95.579 12.998ZM109.563 17.7595H105.355V0.252505H109.563V17.7595ZM116.717 14.513H124.064V17.7595H112.497V0.252505H116.717V14.513ZM139.238 11.8317C139.182 13.0501 138.854 14.1283 138.253 15.0661C137.651 15.996 136.806 16.7174 135.715 17.2305C134.633 17.7435 133.395 18 132 18C129.699 18 127.888 17.2505 126.565 15.7515C125.242 14.2525 124.581 12.1363 124.581 9.40279V8.53707C124.581 6.82164 124.878 5.32264 125.471 4.04007C126.072 2.7495 126.934 1.75551 128.056 1.05812C129.178 0.352705 130.477 0 131.952 0C134.076 0 135.783 0.561123 137.074 1.68338C138.365 2.79759 139.098 4.33666 139.274 6.30061H135.066C135.034 5.23446 134.765 4.46894 134.26 4.00402C133.756 3.53907 132.986 3.30661 131.952 3.30661C130.902 3.30661 130.132 3.6994 129.643 4.48497C129.154 5.27053 128.898 6.52505 128.874 8.24849V9.48697C128.874 11.3547 129.106 12.6894 129.571 13.491C130.044 14.2926 130.854 14.6934 132 14.6934C132.97 14.6934 133.711 14.4649 134.224 14.008C134.737 13.5511 135.01 12.8256 135.042 11.8317H139.238ZM155.868 17.7595H151.671V10.4489H145.455V17.7595H141.234V0.252505H145.455V7.20241H151.671V0.252505H155.868V17.7595ZM163.046 17.7595H158.838V0.252505H163.046V17.7595ZM175.01 13.1062C175.01 12.489 174.789 12.008 174.349 11.6633C173.916 11.3186 173.15 10.9619 172.052 10.5932C170.954 10.2244 170.056 9.86774 169.359 9.52305C167.09 8.40882 165.956 6.87776 165.956 4.92986C165.956 3.95992 166.236 3.1062 166.798 2.36874C167.367 1.62325 168.168 1.04609 169.202 0.637275C170.236 0.220441 171.399 0.0120232 172.689 0.0120232C173.948 0.0120232 175.074 0.236474 176.068 0.685372C177.07 1.13427 177.848 1.77556 178.401 2.60922C178.954 3.43487 179.23 4.38076 179.23 5.44689H175.022C175.022 4.73346 174.802 4.18035 174.361 3.78758C173.928 3.39479 173.339 3.1984 172.593 3.1984C171.84 3.1984 171.242 3.36674 170.802 3.7034C170.369 4.03207 170.152 4.45289 170.152 4.96592C170.152 5.41484 170.393 5.82364 170.874 6.19238C171.355 6.5531 172.2 6.92987 173.411 7.32264C174.621 7.70741 175.615 8.12425 176.393 8.57315C178.285 9.66333 179.23 11.1663 179.23 13.0822C179.23 14.6132 178.653 15.8156 177.499 16.6894C176.345 17.5631 174.762 18 172.749 18C171.331 18 170.044 17.7475 168.89 17.2425C167.744 16.7295 166.878 16.0321 166.292 15.1503C165.715 14.2605 165.427 13.2385 165.427 12.0842H169.659C169.659 13.022 169.9 13.7154 170.381 14.1643C170.87 14.6052 171.659 14.8256 172.749 14.8256C173.447 14.8256 173.996 14.6774 174.397 14.3808C174.806 14.0762 175.01 13.6513 175.01 13.1062Z"
+                    fill="none" />
+            </svg>
+            <hr class="mobile" id="drawer-top-line">
+            <!--Drawer Tabs-->
+            <div id="drawer-tabs">
+                <ul>
+                    <li class="gray-tab" aria-level="1">
+                        <a href="#">
+                            <span>Index</span>
+                        </a>
+                    </li>
+                    <li aria-level="1">
+                        <a href="#">
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li aria-level="1">
+                        <a href="#">
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li aria-level="1">
+                        <a href="#">
+                            <span>Portfolio</span>
+                        </a>
+                    </li>
+                    <li aria-level="1">
+                        <a href="#">
+                            <span>Packages</span>
+                        </a>
+                    </li>
+                    <li aria-level="1">
+                        <a href="#">
+                            <span>Testimonials</span>
+                        </a>
+                    </li>
+                    <li aria-level="1">
+                        <a href="#">
+                            <span>Blog</span>
+                        </a>
+                    </li>
+                    <li aria-level="1">
+                        <a href="#">
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+            <!--Bottom Drower-->
+            <div id="bottom-drower">
+                <hr class="mobile" id="drawer-bottom-line">
+                <ul>
+                    <li>
+                        <a href="#">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="#">1-844-201-2399*</a>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <span>Start now</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Drawer Backdrop-->
+        <div id="drawer-backdrop" onclick="closeDrower()"></div>
+
+    </div>
+    <!--End-->
+</body>
+
+</html>

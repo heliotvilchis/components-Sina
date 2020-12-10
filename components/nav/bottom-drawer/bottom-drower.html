@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bottom drower</title>
+
+    <!--JQuerry-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="/styles/root.css">
+
+    <style>
+        @media (max-width: 899px) {
+            #bottom-drower {
+                padding: 8px 16px 24px 16px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+            #bottom-drower button {
+                background: var(--primary);
+                color: var(--white);
+                width: 100%;
+                height: 48px;
+                line-height: 1.71429;
+                font-size: 14px;
+                border: none;
+                border-radius: 2px;
+                letter-spacing: .75px;
+                font-weight: 400;
+                cursor: pointer;
+                word-wrap: break-word;
+            }
+            #bottom-drower button:hover {
+                background-color: var(--complementary);
+            }
+            #bottom-drower li {
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--Start-->
+    <ul id="bottom-drower">
+        <li>
+            <a href="#">Sign in</a>
+        </li>
+        <li>
+            <a href="#">1-844-201-2399*</a>
+        </li>
+        <li>
+            <button type="button">
+                <span>Start now</span>
+            </button>
+        </li>
+    </ul>
+    <!--End-->
+
+
+
+
+    <!--To avoid errors-->
+    <main>
+        <h2>bottom drawer</h2>
+    </main>
+</body>
+
+</html>

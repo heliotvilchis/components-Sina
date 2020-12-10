@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hamburger Icon</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="/styles/root.css">
+
+    <style>
+        @media (max-width: 899px) {
+            .burger-icon {
+                padding: 6px;
+                cursor: pointer;
+            }
+            .burger-svg {
+                fill: var(--gray);
+            }
+            .burger-icon:active .circle-focus-svg,
+            .burger-icon:hover .circle-focus-svg,
+            .burger-icon:focus .circle-focus-svg {
+                fill: var(--softGray);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--Start-->
+    <svg class="burger-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect class="circle-focus-svg" width="44" height="44" rx="22" fill="none" />
+        <path class="burger-svg" d="M13 28H31V26H13V28ZM13 23H31V21H13V23ZM13 16V18H31V16H13Z" fill="none" />
+    </svg>
+    <!--End-->
+</body>
+
+</html>
